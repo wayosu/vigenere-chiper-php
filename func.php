@@ -3,6 +3,7 @@
 function enkripsi($kunci, $text)
 {
 	// inisialisasi variable
+	$kunci = strtoupper($kunci);
 	$ki = 0;
 	$kl = strlen($kunci);
 	$length = strlen($text);
@@ -21,7 +22,7 @@ function enkripsi($kunci, $text)
 			// jika text merupakan huruf kecil (semua)
 			else
 			{
-				$text[$i] = chr(((ord($text[$i]) - ord("a") + ord($kunci[$ki]) - ord("a")) % 26) + ord("a"));
+				$text[$i] = chr(((ord($text[$i]) - ord("A") + ord($kunci[$ki]) - ord("a")) % 26) + ord("a"));
 			}
 			
 			$ki++;
@@ -39,6 +40,7 @@ function enkripsi($kunci, $text)
 function dekripsi($kunci, $text)
 {
 	// inisialisasi variable
+	$kunci = strtoupper($kunci);
 	$ki = 0;
 	$kl = strlen($kunci);
 	$length = strlen($text);
@@ -67,7 +69,7 @@ function dekripsi($kunci, $text)
 			// jika text merupakan huruf kecil (semua)
 			else
 			{
-				$x = ((ord($text[$i]) - ord("a")) - (ord($kunci[$ki]) - ord("a")) % 26);
+				$x = ((ord($text[$i]) - ord("A")) - (ord($kunci[$ki]) - ord("a")) % 26);
 
 				if ($x < 0)
 				{
