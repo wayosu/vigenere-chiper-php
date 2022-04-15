@@ -1,3 +1,5 @@
+<?php include 'proses.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +20,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./">Home</a>
+                        <a class="nav-link" aria-current="page" href="./">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="enkripsi_dekripsi.php">Enkripsi & Dekripsi</a>
+                        <a class="nav-link active" aria-current="page" href="enkripsi_dekripsi.php">Enkripsi & Dekripsi</a>
                     </li>
                 </ul>
             </div>
@@ -29,87 +31,36 @@
     </nav>
     
     <div class="container mb-5">
-        <div class="mt-5 text-center">
-            <h1 class="display-5 fw-bold text-uppercase">Vigenere Chiper</h1>
-            <div class="col-lg-8 mx-auto">
-                <p class="lead mb-4">
-                    Vigenère Chiper adalah salah satu penyandian teks alfabet dengan menggunakan sandi Caesar Cipher akan tetapi alfabet 
-                    yang dijadikan sebagai kata kuncinya. Vigenère Chiper merupakan bentuk sederhana dari sandi substitusi polialfabetik. 
-                    Vigenere Chiper termasuk dalam cipher abjad majemuk (polyalphabetic substitution Chiper) yang dipublikasikan oleh 
-                    diplomat (sekaligus seorang kriptologis) Perancis, Blaise de Vigenere pada abad 16 tahun 1586 (Arjana et al. 2012).
-                </p>
-            </div>
+        <div class="my-5 text-center">
+            <h2 class="fw-bold text-uppercase">IMPLEMENTASI ALGORITMA KRIPTOGRAFI Vigenere Chiper DENGAN PHP</h2>
         </div>
 
-        <div class="mb-4">
+        <div class="mb-5">
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <h6 class="text-center mb-3">Tabel Substitusi Algoritma Kriptografi Vigenere Chiper</h6>
-                    <table class="table table-bordered">
-                        <tr class="text-center">
-                            <td>A</td>
-                            <td>B</td>
-                            <td>C</td>
-                            <td>D</td>
-                            <td>E</td>
-                            <td>F</td>
-                            <td>G</td>
-                            <td>H</td>
-                            <td>I</td>
-                            <td>J</td>
-                            <td>K</td>
-                            <td>L</td>
-                            <td>M</td>
-                        </tr>
-                        <tr class="bg-light text-center">
-                            <td>0</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                            <td>9</td>
-                            <td>10</td>
-                            <td>11</td>
-                            <td>12</td>
-                        </tr>
-                        <tr class="text-center">
-                            <td>N</td>
-                            <td>O</td>
-                            <td>P</td>
-                            <td>Q</td>
-                            <td>R</td>
-                            <td>S</td>
-                            <td>T</td>
-                            <td>U</td>
-                            <td>V</td>
-                            <td>W</td>
-                            <td>X</td>
-                            <td>Y</td>
-                            <td>Z</td>
-                        </tr>
-                        <tr class="bg-light text-center">
-                            <td>13</td>
-                            <td>14</td>
-                            <td>15</td>
-                            <td>16</td>
-                            <td>17</td>
-                            <td>18</td>
-                            <td>19</td>
-                            <td>20</td>
-                            <td>21</td>
-                            <td>22</td>
-                            <td>23</td>
-                            <td>24</td>
-                            <td>25</td>
-                        </tr>
-                    </table>
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label for="kunci">Kunci</label>
+                            <input type="text" name="kunci" id="kunci" class="form-control" placeholder="kunci..." value="<?= htmlspecialchars($kunci); ?>">
+                        </div>
+                        <div class="mb-3">
+                            <label for="code">Plaintext / Chipertext</label>
+                            <textarea name="code" id="code" class="form-control" rows="10" placeholder="plaintext / chipertext..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" name="enkripsi" class="btn btn-success" onclick="validate(1)">Enkripsi</button>
+                            <button type="submit" name="dekripsi" class="btn btn-success" onclick="validate(2)">Dekripsi</button>
+                            <button type="reset" class="btn btn-secondary" onclick="btnReset()">Reset</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="hasil">Hasil</label>
+                        <textarea name="hasil" id="hasil" class="form-control" rows="15" placeholder="..." readonly><?= htmlspecialchars($code); ?></textarea>
+                    </div>
                 </div>
             </div>
-            <hr>
         </div>
 
         <h4 class="text-center mb-5 text-uppercase">Anggota Kelompok 1</h4>
@@ -157,7 +108,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>
         function btnReset() {
-            document.location = 'index.php';
+            document.location = 'enkripsi_dekripsi.php';
         }
     </script>
 </body>

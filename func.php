@@ -69,7 +69,7 @@ function dekripsi($kunci, $text)
 			// jika text merupakan huruf kecil (semua)
 			else
 			{
-				$x = ((ord($text[$i]) - ord("A")) - (ord($kunci[$ki]) - ord("a")) % 26);
+				$x = ((ord($text[$i]) - ord("a")) - (ord($kunci[$ki]) - ord("A")) % 26);
 
 				if ($x < 0)
 				{
